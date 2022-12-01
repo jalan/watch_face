@@ -1,0 +1,8 @@
+<settings>
+	<setting propertyKey="@Properties.Color" title="Color">
+		<settingConfig type="list">
+			<listEntry value="0xFFFFFF">White</listEntry>
+			<listEntry value="0x0000FF">Blue</listEntry>
+		</settingConfig>
+	</setting>
+</settings>
