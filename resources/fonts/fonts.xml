@@ -1,3 +1,5 @@
 <fonts>
-	<font id="YantramanavLight100" antialias="true" filename="yantramanav-light-100.fnt" filter="0123456789:"/>
+	<font id="NotoEmojiMediumSmall" antialias="true" filename="noto_emoji_medium_small.fnt" filter="💬" />
+	<font id="YantramanavLightSmall" antialias="true" filename="yantramanav_light_small.fnt" filter=" -0123456789%°SunMonTueWedThuFriSat" />
+	<font id="YantramanavThinLarge" antialias="true" filename="yantramanav_thin_large.fnt" filter="0123456789:" />
 </fonts>
