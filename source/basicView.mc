@@ -1,8 +1,12 @@
+import Toybox.Activity;
+import Toybox.ActivityMonitor;
 import Toybox.Application;
 import Toybox.Graphics;
 import Toybox.Lang;
 import Toybox.System;
+import Toybox.Time;
 import Toybox.WatchUi;
+import Toybox.Weather;
 
 class basicView extends WatchUi.WatchFace {
 
@@ -21,33 +25,73 @@ class basicView extends WatchUi.WatchFace {
 	function onShow() as Void {
 	}
 
-	// Update the view
 	function onUpdate(dc as Dc) as Void {
 
-		// Read settings
+		// Settings
 		var color = Application.Properties.getValue("Color");
+		var deviceSettings = System.getDeviceSettings();
 
-		// Clock
+		// Time
 		{
+			var view = View.findDrawableById("TimeLabel") as Text;
 			var clockTime = System.getClockTime();
 			var hour = clockTime.hour;
-			if (!System.getDeviceSettings().is24Hour) {
+			if (!deviceSettings.is24Hour) {
 				hour = hour%12;
 				if (hour == 0) {
 					hour = 12;
 				}
 			}
-			var timeString = hour + ":" + clockTime.min.format("%02d");
-			var view = View.findDrawableById("TimeLabel") as Text;
 			view.setColor(color);
-			view.setText(timeString);
+			view.setText(hour.toString() + ":" + clockTime.min.format("%02d"));
 		}
 
 		// Battery
 		{
-			var batteryPercent = System.getSystemStats().battery.toNumber();
 			var view = View.findDrawableById("BatteryLabel") as Text;
+			var batteryPercent = System.getSystemStats().battery.toNumber();
+			view.setColor(color);
 			view.setText(batteryPercent.format("%d") + "%");
+		}
+
+		// Date
+		{
+			var view = View.findDrawableById("DateLabel") as Text;
+			var info = Time.Gregorian.info(Time.now(), Time.FORMAT_MEDIUM);
+			view.setColor(color);
+			view.setText(info.day_of_week + " " + info.day);
+		}
+
+		// Notifications
+		{
+			var view = View.findDrawableById("NotificationsIconLabel") as Text;
+			var notificationCount = deviceSettings.notificationCount;
+			var text = "";
+			if (notificationCount != 0) {
+				text = "💬";
+			}
+			view.setColor(color);
+			view.setText(text);
+
+			view = View.findDrawableById("NotificationsCountLabel") as Text;
+			text = "";
+			if (notificationCount != 0) {
+				text = notificationCount.toString();
+			}
+			view.setColor(color);
+			view.setText(text);
+		}
+
+		// Temperature
+		{
+			var view = View.findDrawableById("TemperatureLabel") as Text;
+			var weatherConditions = Weather.getCurrentConditions();
+			var text = "";
+			if (weatherConditions != null) {
+				text = (weatherConditions.temperature * 9/5 + 32).toString() + "°";
+			}
+			view.setColor(color);
+			view.setText(text);
 		}
 
 		View.onUpdate(dc);

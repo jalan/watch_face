@@ -2,6 +2,8 @@
 	<setting propertyKey="@Properties.Color" title="Color">
 		<settingConfig type="list">
 			<listEntry value="0xFFFFFF">White</listEntry>
+			<listEntry value="0xFF0000">Red</listEntry>
+			<listEntry value="0x00FF00">Green</listEntry>
 			<listEntry value="0x0000FF">Blue</listEntry>
 		</settingConfig>
 	</setting>

@@ -1,4 +1,9 @@
 <layout id="WatchFace">
-	<label id="TimeLabel" x="center" y="center" font="@Fonts.YantramanavLight100" justification="Graphics.TEXT_JUSTIFY_CENTER" color="Graphics.COLOR_WHITE" />
-	<label id="BatteryLabel" x="right" y="0" font="Graphics.FONT_LARGE" justification="Graphics.TEXT_JUSTIFY_RIGHT" color="Graphics.COLOR_WHITE" />
+	<label id="TimeLabel" x="center" y="center" font="@Fonts.YantramanavThinLarge" justification="Graphics.TEXT_JUSTIFY_CENTER" color="Graphics.COLOR_WHITE" />
+
+	<label id="BatteryLabel" x="right" y="top" font="@Fonts.YantramanavLightSmall" justification="Graphics.TEXT_JUSTIFY_RIGHT" color="Graphics.COLOR_WHITE" />
+	<label id="DateLabel" x="left" y="bottom" font="@Fonts.YantramanavLightSmall" justification="Graphics.TEXT_JUSTIFY_LEFT" color="Graphics.COLOR_WHITE" />
+	<label id="NotificationsIconLabel" x="left" y="2" font="@Fonts.NotoEmojiMediumSmall" justification="Graphics.TEXT_JUSTIFY_LEFT" color="Graphics.COLOR_WHITE" />
+	<label id="NotificationsCountLabel" x="35" y="top" font="@Fonts.YantramanavLightSmall" justification="Graphics.TEXT_JUSTIFY_LEFT" color="Graphics.COLOR_WHITE" />
+	<label id="TemperatureLabel" x="right" y="bottom" font="@Fonts.YantramanavLightSmall" justification="Graphics.TEXT_JUSTIFY_RIGHT" color="Graphics.COLOR_WHITE" />
 </layout>
