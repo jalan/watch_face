@@ -1,15 +1,27 @@
-small = 30
-large = 100
-
 .PHONY: all
 
-all: noto_emoji_medium_small.fnt yantramanav_light_small.fnt yantramanav_thin_large.fnt
+all: emoji.fnt large.fnt small.fnt
 
-noto_emoji_medium_small.fnt: noto_emoji_medium.ttf
-	fontbm --font-file noto_emoji_medium.ttf --output noto_emoji_medium_small --font-size $(small) --chars-file chars_emoji.txt --background-color 0,0,0
+emoji.fnt: noto_emoji_medium.ttf
+	fontbm \
+		--background-color 0,0,0 \
+		--chars-file chars_emoji.txt \
+		--font-file noto_emoji_medium.ttf \
+		--font-size 30 \
+		--output emoji
 
-yantramanav_light_small.fnt: chars_small.txt yantramanav_light.ttf
-	fontbm --font-file yantramanav_light.ttf --output yantramanav_light_small --font-size $(small) --chars-file chars_small.txt --background-color 0,0,0
+large.fnt: chars_large.txt yantramanav_thin.ttf
+	fontbm \
+		--background-color 0,0,0 \
+		--chars-file chars_large.txt \
+		--font-file yantramanav_thin.ttf \
+		--font-size 100 \
+		--output large
 
-yantramanav_thin_large.fnt: chars_large.txt yantramanav_thin.ttf
-	fontbm --font-file yantramanav_thin.ttf --output yantramanav_thin_large --font-size $(large) --chars-file chars_large.txt --background-color 0,0,0
+small.fnt: chars_small.txt yantramanav_light.ttf
+	fontbm \
+		--background-color 0,0,0 \
+		--chars-file chars_small.txt \
+		--font-file yantramanav_light.ttf \
+		--font-size 30 \
+		--output small
