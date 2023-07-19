@@ -87,7 +87,7 @@ class basicView extends WatchUi.WatchFace {
 			var view = View.findDrawableById("TemperatureLabel") as Text;
 			var weatherConditions = Weather.getCurrentConditions();
 			var text = "";
-			if (weatherConditions != null) {
+			if (weatherConditions != null and weatherConditions.temperature != null) {
 				text = (weatherConditions.temperature * 9/5 + 32).toString() + "°";
 			}
 			view.setColor(color);
