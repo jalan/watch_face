@@ -8,7 +8,7 @@ import Toybox.Time;
 import Toybox.WatchUi;
 import Toybox.Weather;
 
-class basicView extends WatchUi.WatchFace {
+class watchFace extends WatchUi.WatchFace {
 
 	function initialize() {
 		WatchFace.initialize();

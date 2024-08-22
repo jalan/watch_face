@@ -2,7 +2,7 @@ import Toybox.Application;
 import Toybox.Lang;
 import Toybox.WatchUi;
 
-class basicApp extends Application.AppBase {
+class app extends Application.AppBase {
 
 	function initialize() {
 		AppBase.initialize();
@@ -13,10 +13,10 @@ class basicApp extends Application.AppBase {
 	function onStop(state as Dictionary?) as Void {}
 
 	function getInitialView() as Array<Views or InputDelegates>? {
-		return [new basicView()] as Array<Views or InputDelegates>;
+		return [new watchFace()] as Array<Views or InputDelegates>;
 	}
 }
 
-function getApp() as basicApp {
-	return Application.getApp() as basicApp;
+function getApp() as app {
+	return Application.getApp() as app;
 }
