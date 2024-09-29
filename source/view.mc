@@ -20,7 +20,6 @@ class watchFace extends WatchUi.WatchFace {
 
 	function onUpdate(dc as Dc) as Void {
 		// Settings
-		var color = Application.Properties.getValue("Color");
 		var deviceSettings = System.getDeviceSettings();
 
 		// Time
@@ -34,7 +33,6 @@ class watchFace extends WatchUi.WatchFace {
 					hour = 12;
 				}
 			}
-			view.setColor(color);
 			view.setText(hour.toString() + ":" + clockTime.min.format("%02d"));
 		}
 
@@ -42,7 +40,6 @@ class watchFace extends WatchUi.WatchFace {
 		{
 			var view = View.findDrawableById("BatteryLabel") as Text;
 			var batteryPercent = System.getSystemStats().battery.toNumber();
-			view.setColor(color);
 			view.setText(batteryPercent.format("%d") + "%");
 		}
 
@@ -50,7 +47,6 @@ class watchFace extends WatchUi.WatchFace {
 		{
 			var view = View.findDrawableById("DateLabel") as Text;
 			var info = Time.Gregorian.info(Time.now(), Time.FORMAT_MEDIUM);
-			view.setColor(color);
 			view.setText(info.day_of_week + " " + info.day);
 		}
 
@@ -62,7 +58,6 @@ class watchFace extends WatchUi.WatchFace {
 			if (notificationCount != 0) {
 				text = "💬";
 			}
-			view.setColor(color);
 			view.setText(text);
 
 			view = View.findDrawableById("NotificationsCountLabel") as Text;
@@ -70,7 +65,6 @@ class watchFace extends WatchUi.WatchFace {
 			if (notificationCount != 0) {
 				text = notificationCount.toString();
 			}
-			view.setColor(color);
 			view.setText(text);
 		}
 
@@ -82,7 +76,6 @@ class watchFace extends WatchUi.WatchFace {
 			if (weatherConditions != null and weatherConditions.temperature != null) {
 				text = (weatherConditions.temperature * 9/5 + 32).toString() + "°";
 			}
-			view.setColor(color);
 			view.setText(text);
 		}
 
