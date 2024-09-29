@@ -14,19 +14,11 @@ class watchFace extends WatchUi.WatchFace {
 		WatchFace.initialize();
 	}
 
-	// Load your resources here
 	function onLayout(dc as Dc) as Void {
 		setLayout(Rez.Layouts.WatchFace(dc));
 	}
 
-	// Called when this View is brought to the foreground. Restore
-	// the state of this View and prepare it to be shown. This includes
-	// loading resources into memory.
-	function onShow() as Void {
-	}
-
 	function onUpdate(dc as Dc) as Void {
-
 		// Settings
 		var color = Application.Properties.getValue("Color");
 		var deviceSettings = System.getDeviceSettings();
@@ -97,7 +89,8 @@ class watchFace extends WatchUi.WatchFace {
 		View.onUpdate(dc);
 	}
 
-	function onHide() as Void {}
-	function onExitSleep() as Void {}
 	function onEnterSleep() as Void {}
+	function onExitSleep() as Void {}
+	function onHide() as Void {}
+	function onShow() as Void {}
 }
