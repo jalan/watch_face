@@ -28,7 +28,7 @@ class watchFace extends WatchUi.WatchFace {
 			var clockTime = System.getClockTime();
 			var hour = clockTime.hour;
 			if (!deviceSettings.is24Hour) {
-				hour = hour%12;
+				hour = hour % 12;
 				if (hour == 0) {
 					hour = 12;
 				}
@@ -74,7 +74,7 @@ class watchFace extends WatchUi.WatchFace {
 			var weatherConditions = Weather.getCurrentConditions();
 			var text = "";
 			if (weatherConditions != null and weatherConditions.temperature != null) {
-				text = (weatherConditions.temperature * 9/5 + 32).toString() + "°";
+				text = (weatherConditions.temperature * 9 / 5 + 32).toString() + "°";
 			}
 			view.setText(text);
 		}

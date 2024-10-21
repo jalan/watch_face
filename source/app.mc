@@ -7,8 +7,8 @@ class app extends Application.AppBase {
 		AppBase.initialize();
 	}
 
-	function getInitialView() as Array<Views or InputDelegates>? {
-		return [new watchFace()] as Array<Views or InputDelegates>;
+	function getInitialView() as Array<Views or InputDelegates> ? {
+		return [new watchFace()] as Array < Views or InputDelegates > ;
 	}
 
 	function onStart(state as Dictionary?) as Void {}

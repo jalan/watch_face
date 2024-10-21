@@ -1,0 +1,5 @@
+AllowShortFunctionsOnASingleLine: Empty
+ColumnLimit: 120
+IndentWidth: 8
+TabWidth: 8
+UseTab: Always
