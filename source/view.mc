@@ -19,7 +19,6 @@ class watchFace extends WatchUi.WatchFace {
 	}
 
 	function onUpdate(dc as Dc) as Void {
-		// Settings
 		var deviceSettings = System.getDeviceSettings();
 
 		// Time
